@@ -1310,10 +1310,6 @@
   "importAccountSeedPhrase": {
     "message": "シークレット リカバリー フレーズを使用してアカウントをインポートする:"
   },
-  "importAccountText": {
-    "message": "または $1",
-    "description": "$1 represents the text from `importAccountLinkText` as a link"
-  },
   "importExistingWalletDescription": {
     "message": "ウォレットの作成時に提供されたシークレットリカバリーフレーズ (シードフレーズ) を入力してください。$1",
     "description": "$1 is the words 'Learn More' from key 'learnMore', separated here so that it can be added as a link"

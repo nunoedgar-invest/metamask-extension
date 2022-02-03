@@ -1310,10 +1310,6 @@
   "importAccountSeedPhrase": {
     "message": "Gizli Kurtarma İfadesi ile bir cüzdan içe aktarın"
   },
-  "importAccountText": {
-    "message": "ya da $1",
-    "description": "$1 represents the text from `importAccountLinkText` as a link"
-  },
   "importExistingWalletDescription": {
     "message": "Cüzdanınızı oluşturduğunuzda size verilen Gizli Kurtarma İfadenizi (başka bir deyişle Tohum İfadesi) girin. $1",
     "description": "$1 is the words 'Learn More' from key 'learnMore', separated here so that it can be added as a link"
