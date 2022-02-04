@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getCollectibles, getTokens } from '../ducks/metamask/metamask';
 import { ERC1155, ERC721, ERC20 } from '../helpers/constants/common';
 import {
@@ -10,14 +10,21 @@ import {
 } from '../helpers/utils/token-util';
 import { parseTransactionData } from '../helpers/utils/transactions.util';
 import { getTokenList } from '../selectors';
+import { hideLoadingIndication, showLoadingIndication } from '../store/actions';
+import { usePrevious } from './usePrevious';
 
 export function useAssetDetails(tokenAddress, userAddress, transactionData) {
+  const dispatch = useDispatch();
   const tokens = useSelector(getTokens);
   const collectibles = useSelector(getCollectibles);
   const tokenList = useSelector(getTokenList);
   const [currentAsset, setCurrentAsset] = useState(null);
+  const prevTokenAddress = usePrevious(tokenAddress);
+  const prevUserAddress = usePrevious(userAddress);
+  const prevTransactionData = usePrevious(transactionData);
   useEffect(() => {
     async function getAndSetAssetDetails() {
+      dispatch(showLoadingIndication());
       const assetDetails = await getAssetDetails(
         tokenAddress,
         userAddress,
@@ -27,8 +34,15 @@ export function useAssetDetails(tokenAddress, userAddress, transactionData) {
         tokenList,
       );
       setCurrentAsset(assetDetails);
+      dispatch(hideLoadingIndication());
     }
-    getAndSetAssetDetails();
+    if (
+      tokenAddress !== prevTokenAddress ||
+      userAddress !== prevUserAddress ||
+      transactionData !== prevTransactionData
+    ) {
+      getAndSetAssetDetails();
+    }
   }, [
     tokenAddress,
     userAddress,

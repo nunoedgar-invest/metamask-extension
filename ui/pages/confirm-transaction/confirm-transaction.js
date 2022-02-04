@@ -165,26 +165,6 @@ export const ConfirmTransaction = () => {
         path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${CONFIRM_SEND_ETHER_PATH}`}
         component={ConfirmSendEther}
       />
-      {/* <Route
-        exact
-        path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${CONFIRM_TOKEN_METHOD_PATH}`}
-        component={ConfirmTransactionBase}
-      /> */}
-      {/* <Route
-        exact
-        path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${CONFIRM_SEND_TOKEN_PATH}`}
-        component={ConfirmSendToken}
-      />
-      <Route
-        exact
-        path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${CONFIRM_APPROVE_PATH}`}
-        component={ConfirmApprove}
-      />
-      <Route
-        exact
-        path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${CONFIRM_TRANSFER_FROM_PATH}`}
-        component={ConfirmTokenTransactionBaseContainer}
-      /> */}
       <Route
         exact
         path={`${CONFIRM_TRANSACTION_ROUTE}/:id?${SIGNATURE_REQUEST_PATH}`}

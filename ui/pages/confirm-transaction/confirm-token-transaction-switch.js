@@ -12,7 +12,7 @@ import { transactionFeeSelector } from '../../selectors';
 import ConfirmApprove from '../confirm-approve';
 import ConfirmSendToken from '../confirm-send-token';
 import ConfirmTokenTransactionBase from '../confirm-token-transaction-base/confirm-token-transaction-base.component';
-import ConfirmTransactionBase from '../confirm-transaction-base/confirm-transaction-base.component';
+import ConfirmTransactionBase from '../confirm-transaction-base';
 import ConfirmTransactionSwitch from '../confirm-transaction-switch';
 
 const { useAssetDetails } = require('../../hooks/useAssetDetails');
