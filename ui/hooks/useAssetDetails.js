@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getCollectibles, getTokens } from '../ducks/metamask/metamask';
 import { ERC1155, ERC721, ERC20 } from '../helpers/constants/common';
 import {
+  calcTokenAmount,
   getAssetDetails,
   getTokenAddressParam,
   getTokenValueParam,
@@ -63,7 +64,10 @@ export function useAssetDetails(tokenAddress, userAddress, transactionData) {
     if (assetStandard === ERC20) {
       userBalance = currentAsset?.balance;
       decimals = Number(currentAsset?.decimals.toString(10));
-      tokenAmount = getTokenValueParam(tokenData);
+      // WHY DO WE GET DIFFERENT VALUES FROM INTERNAL AND EXTERNAL CALL HERE...
+      tokenAmount =
+        tokenData &&
+        calcTokenAmount(getTokenValueParam(tokenData), decimals).toString(10);
     }
   }
   return {
